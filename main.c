@@ -7,6 +7,7 @@ int main() {
     int pontos_turisticos1, pontos_turisticos2;
     float area1, pib1, area2, pib2;
     unsigned long int populacao1, populacao2;
+    int options = 0;
 
     // Entrada de dados para as cartas
     printf("Carta 1\n");
@@ -78,14 +79,86 @@ int main() {
     printf("PIB per Capita: %.2f\n", pib_per_capita2);
     //printf("Super Poder: %.2f\n", poder2);
 
-    // Comparação de cartas
-    printf("\nComparacao de Cartas (Atributo populacao):\n");
-    printf("Carta 1 - %s: %lu\n", nome1, populacao1);
-    printf("Carta 2 - %s: %lu\n", nome2, populacao2);
-    if( populacao1 > populacao2) {
-        printf("Resultado: Carta 1 venceu!\n");
-    } else {
-        printf("Resultado: Carta 2 venceu!\n");
+    // Menu de opcões para comparação de atributos
+    printf("\nSelecione o atributo para comparar:\n");
+    printf("1. Area\n");
+    printf("2. PIB\n");
+    printf("3. Populacao\n");
+    printf("4. Pontos Turisticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. PIB per Capita\n");
+    scanf("%d", &options);
+
+    // Comparação e exibição do resultado
+    switch(options) {
+        case 1:
+            printf("%s vs %s - comparacao Area\n", nome1, nome2);
+            printf("Carta 1 - %.2f, Carta 2 - %.2f\n", area1, area2);
+            if(area1 > area2) {
+                printf("Resultado: Carta 1 venceu! %.2f", area1);
+            } else if(area2 > area1) {
+                printf("Resultado: Carta 2 venceu! %.2f", area2);
+            } else {
+                printf("Resultado: Empate.");
+            }
+            break;
+        case 2:
+            printf("%s vs %s - comparacao PIB\n", nome1, nome2);
+            printf("Carta 1 - %.2f, Carta 2 - %.2f\n", pib1, pib2);
+            if(pib1 > pib2) {
+                printf("Resultado: Carta 1 venceu! %.2f", pib1);
+            } else if(pib2 > pib1) {
+                printf("Resultado: Carta 2 venceu! %.2f", pib2);
+            } else {
+                printf("Resultado: Empate.");
+            }
+            break;
+        case 3:
+            printf("%s vs %s - comparacao Populacao\n", nome1, nome2);
+            printf("Carta 1 - %lu, Carta 2 - %lu\n", populacao1, populacao2);
+            if(populacao1 > populacao2) {
+                printf("Resultado: Carta 1 venceu! %lu", populacao1);
+            } else if(populacao2 > populacao1) {
+                printf("Resultado: Carta 2 venceu! %lu", populacao2);
+            } else {
+                printf("Resultado: Empate.");
+            }
+            break;
+        case 4:
+            printf("%s vs %s - comparacao Numero de pontos turisticos\n", nome1, nome2);
+            printf("Carta 1 - %d, Carta 2 - %d\n", pontos_turisticos1, pontos_turisticos2);
+            if(pontos_turisticos1 > pontos_turisticos2) {
+                printf("Resultado: Carta 1 venceu! %d", pontos_turisticos1);
+            } else if(pontos_turisticos2 > pontos_turisticos1) {
+                printf("Resultado: Carta 2 venceu! %d", pontos_turisticos2);
+            } else {
+                printf("Resultado: Empate.");
+            }
+            break;
+        case 5:
+            printf("%s vs %s - comparacao Densidade Populacional\n", nome1, nome2);
+            printf("Carta 1 - %.2f, Carta 2 - %.2f\n", densidade1, densidade2);
+            if(densidade1 < densidade2) {
+                printf("Resultado: Carta 1 venceu! %.2f", densidade1);
+            } else if(densidade2 < densidade1) {
+                printf("Resultado: Carta 2 venceu! %.2f", densidade2);
+            } else {
+                printf("Resultado: Empate.");
+            }
+            break;
+        case 6:
+            printf("%s vs %s - comparacao PIB per capita\n", nome1, nome2);
+            printf("Carta 1 - %.2f, Carta 2 - %.2f\n", pib_per_capita1, pib_per_capita2);
+            if(pib_per_capita1 > pib_per_capita2) {
+                printf("Resultado: Carta 1 venceu! %.2f", pib_per_capita1);
+            } else if(pib_per_capita2 > pib_per_capita1) {
+                printf("Resultado: Carta 2 venceu! %.2f", pib_per_capita2);
+            } else {
+                printf("Resultado: Empate.");
+            }
+            break;
+        default:
+            printf("Opcao invalida.\n");    
     }
 
     return 0;
